@@ -6,8 +6,9 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-#COPY . /src
-WORKDIR /src/TOT_DockerPOC
+COPY . /src
+WORKDIR /src
+#WORKDIR /src/TOT_DockerPOC
 
 #print current directory
 RUN ls
