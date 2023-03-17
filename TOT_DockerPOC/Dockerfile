@@ -16,10 +16,10 @@ COPY ["TOT_DockerPOC/DockerPOC.csproj", "."]
 RUN dotnet restore "./DockerPOC.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "DockerPOC.csproj" -c Release -o /app/build
+RUN dotnet build "TOT_DockerPOC/DockerPOC.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DockerPOC.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "TOT_DockerPOC/DockerPOC.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
