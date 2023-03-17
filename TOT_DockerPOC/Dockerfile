@@ -10,7 +10,7 @@ COPY . /src
 WORKDIR /src
 
 #print current directory
-RUN pwd
+RUN ls
 
 COPY ["DockerPOC.csproj", "."]
 RUN dotnet restore "./DockerPOC.csproj"
