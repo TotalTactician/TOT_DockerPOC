@@ -6,11 +6,15 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /source
+WORKDIR /src
+
+#print current directory
+RUN pwd
+
 COPY ["DockerPOC.csproj", "."]
 RUN dotnet restore "./DockerPOC.csproj"
 COPY . .
-WORKDIR "/source/."
+WORKDIR "/src/."
 RUN dotnet build "DockerPOC.csproj" -c Release -o /app/build
 
 FROM build AS publish
