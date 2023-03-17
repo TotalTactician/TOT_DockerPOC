@@ -12,7 +12,7 @@ WORKDIR /src/TOT_DockerPOC
 #print current directory
 RUN ls
 
-COPY ["DockerPOC.csproj", "."]
+COPY ["TOT_DockerPOC/DockerPOC.csproj", "."]
 RUN dotnet restore "./DockerPOC.csproj"
 COPY . .
 WORKDIR "/src/."
