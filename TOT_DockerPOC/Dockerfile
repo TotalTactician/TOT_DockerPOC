@@ -12,10 +12,10 @@ WORKDIR /src/TOT_DockerPOC
 #print current directory
 RUN ls
 
-COPY ["TOT_DockerPOC/DockerPOC.csproj", "."]
-RUN dotnet restore "./DockerPOC.csproj"
-COPY . .
-WORKDIR "/src/."
+#COPY ["TOT_DockerPOC/DockerPOC.csproj", "."]
+#RUN dotnet restore "./DockerPOC.csproj"
+#COPY . .
+#WORKDIR "/src/."
 RUN dotnet build "TOT_DockerPOC/DockerPOC.csproj" -c Release -o /app/build
 
 FROM build AS publish
